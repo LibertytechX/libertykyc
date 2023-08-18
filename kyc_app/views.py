@@ -1,3 +1,5 @@
+from django.conf import settings
+
 from rest_framework.views import APIView, Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
@@ -57,7 +59,7 @@ class DojahBvNverificationView(APIView):
                 "status": verification_status
             }
 
-            call_back_url = "http://127.0.0.1:8000/api/retail/admin/kyc-app-dojah-callback"
+            call_back_url = settings.AGENCY_BANKING_DOJAH_BVN_VERF_CALLBACK_URL
             headers = {
                 "content-type": "application/json"
             }
